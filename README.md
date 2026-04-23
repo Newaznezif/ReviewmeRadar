@@ -1,16 +1,49 @@
-# React + Vite
+# Newazfix version 1.0 (Radar)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A state-of-the-art, interactive skill assessment and profiling tool. Built with high-end aesthetics and professional-grade insights, Newazfix allows users to measure their strengths across key performance areas and generates a strategic roadmap for growth.
 
-Currently, two official plugins are available:
+![Newazfix Preview](public/icons.svg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+- **Personalized Profiling**: Dynamically generated report titles based on user input.
+- **Master Power Score**: A glowing, animated gauge that provides an instant overall mastery percentage.
+- **Interactive Radar Analysis**: High-fidelity charts with custom dimension tracking for a stable, error-free experience.
+- **Strategic Roadmap**: An automated, tactical timeline giving 3 concrete steps for improvement based on weaknesses.
+- **The Power Duo**: Intelligent synergy identification based on your top 2 skills.
+- **Multi-Format Export**: Native "Save As" support for **PDF**, **PNG**, and **Word** reports.
+- **Modern UI/UX**: Built with Framer Motion, Lucide React, and a custom Tailwind/Glassmorphism theme.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19 + Vite
+- **Styling**: Tailwind CSS 4.0
+- **Charts**: Recharts
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Export Engines**: jsPDF, html-to-image, file-saver
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Live Deployment
+
+Check out the live version here:
+[https://reviewmeradar.netlify.app](https://reviewmeradar.netlify.app)
+
+## 💻 Local Development
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Newaznezif/ReviewmeRadar.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 📄 License
+
+Developed by **Newaz Nezif** (AI & Cyber Engineer).
+© 2026 Newazfix version 1.0. All Rights Reserved.
