@@ -9,6 +9,7 @@ import InsightPanel from '../components/InsightPanel';
 import { calculateResults } from '../utils/scoringLogic';
 import { getArchetype } from '../utils/archetypeLogic';
 import { RefreshCw, Download, Share2, Terminal, Sparkles, BarChart, Settings, Zap, FileText, Image as ImageIcon } from 'lucide-react';
+import RoadmapSection from '../components/RoadmapSection';
 
 const icons = { Terminal, Sparkles, BarChart, Settings, Zap };
 
@@ -129,41 +130,53 @@ const ResultsPage = ({ scores, categories, userName, wheelName, onRestart }) => 
   };
 
   return (
-    <div className="min-h-screen py-20 px-4 max-w-6xl mx-auto space-y-12 bg-[var(--bg-color)]">
-      <div id="report-content" className="space-y-12 p-4 rounded-3xl">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-          <div className="space-y-4">
+    <div className="min-h-screen py-20 px-4 max-w-6xl mx-auto space-y-12" id="report-content">
+      {/* Header Section with Power Score */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
+        <div className="space-y-4 text-center md:text-left">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-500/10 text-brand-400 rounded-lg text-sm font-bold uppercase tracking-wider">
-              Analysis Complete
+              {results.persona}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-color)]">
-              {userName && wheelName 
-                ? `${userName} ${wheelName}` 
-                : userName || wheelName || 'Your Profile'}
-            </h1>
+            {/* Power Duo Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-lg text-sm font-bold border border-indigo-500/20">
+              <Zap className="w-3 h-3" />
+              {results.synergy.title}
+            </div>
           </div>
+          <h1 className="text-4xl md:text-6xl font-bold text-[var(--text-color)] leading-tight">
+            {userName && wheelName 
+              ? `${userName} ${wheelName}` 
+              : userName || wheelName || 'Your Profile'}
+          </h1>
           <button
             onClick={onRestart}
-            className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-white transition-colors no-print"
+            className="flex items-center justify-center md:justify-start gap-2 text-slate-500 dark:text-slate-400 hover:text-brand-500 transition-colors no-print"
           >
             <RefreshCw className="w-4 h-4" />
             <span>Retake Assessment</span>
           </button>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
-            <RadarChart data={results.all} />
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ScoreCard title="Key Strengths" items={results.top3} type="strength" />
-              <ScoreCard title="Growth Opportunities" items={results.bottom3} type="weakness" />
-            </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2 space-y-8">
+          <RadarChart 
+            data={results.all} 
+            expertData={results.expertData} 
+            average={results.average}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ScoreCard title="Key Strengths" items={results.top3} type="strength" />
+            <ScoreCard title="Growth Opportunities" items={results.bottom3} type="weakness" />
           </div>
 
-          <div className="space-y-8">
-            <InsightPanel results={results} />
-          </div>
+          <RoadmapSection roadmap={results.roadmap} />
+        </div>
+
+        <div className="space-y-8">
+          <InsightPanel results={results} />
         </div>
       </div>
 
